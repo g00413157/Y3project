@@ -18,25 +18,16 @@ CREATE TABLE UserAccounts (
 -- Products table for shop
 CREATE TABLE Products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    team VARCHAR(255) NOT NULL,
+    year DATE,
+    season VARCHAR(255),
     description TEXT,
+    leaguetype ENUM('Mens','Women') DEFAULT 'Mens',
+    league VARCHAR(255),
+    size ENUM('XS','S','M','L','XL','XXL','3XL','4XL') DEFAULT 'M',
     price DECIMAL(10,2) NOT NULL,
     stock_quantity INT NOT NULL,
     image_url VARCHAR(255)
-);
-
--- Product filters and categories
-CREATE TABLE ProductFilters (
-    filter_id INT PRIMARY KEY AUTO_INCREMENT,
-    filter_name VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE ProductFilterMapping (
-    product_id INT,
-    filter_id INT,
-    PRIMARY KEY (product_id, filter_id),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id) ON DELETE CASCADE,
-    FOREIGN KEY (filter_id) REFERENCES ProductFilters(filter_id) ON DELETE CASCADE
 );
 
 -- Cart system
