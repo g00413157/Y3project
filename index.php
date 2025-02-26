@@ -34,5 +34,8 @@
     </nav>
     </header>
     <h1>WHATS NEW</h1>
+    <footer class="footer">
+
+    </footer>
 </body>
 </html>
